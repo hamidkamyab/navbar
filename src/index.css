@@ -10,11 +10,20 @@ body {
 }
 
 .navbar {
-    /* border-bottom: 2px solid #dfe6e9; */
-    box-shadow: 0 0 1px 2px #dfe6e9;
+    height: 48px;
+    box-shadow: 0 0 1px 1px #dfe6e9;
 }
 
-.navbar .menu li a {
+.logo-btn button {
+    background-color: transparent;
+}
+
+.navbar .menu {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .menu>li a {
     display: block;
     font-size: 14px;
     height: 48px;
@@ -27,7 +36,7 @@ body {
     -moz-transition: 0.3s ease-out;
 }
 
-.navbar .menu li a:hover {
+.navbar .menu>li a:hover {
     border-bottom: 2px solid #0984e3;
     color: #2d3436;
     transition: 0.3s ease-out;
@@ -36,7 +45,7 @@ body {
     -moz-transition: 0.3s ease-out;
 }
 
-.navbar .menu li.active a {
+.navbar .menu>li.active a {
     border-bottom: 2px solid #d63031;
 }
 
@@ -50,4 +59,66 @@ body {
 
 .menu-btn {
     display: none;
+}
+
+@media (min-width: 768px) {
+    .nav-links {
+        height: auto !important;
+    }
+}
+
+@media (max-width: 767.99px) {
+    .navbar .right {
+        flex: 1;
+    }
+    .navbar .right .logo-btn {
+        flex: 1;
+        justify-content: space-between;
+    }
+    .menu-btn {
+        display: inline-block;
+    }
+    .nav-links {
+        position: absolute;
+        height: 0;
+        background-color: #fff;
+        top: 50px;
+        width: 100vw;
+        right: 0;
+        left: 0;
+        overflow: hidden;
+        box-shadow: 0 0 1px 1px #dfe6e9;
+        transition: 0.3s ease-in;
+        -o-transition: 0.3s ease-in;
+        -webkit-transition: 0.3s ease-in;
+    }
+    .navbar .menu {
+        flex-direction: column;
+    }
+    .navbar .menu>li a {
+        width: 100vw;
+        text-align: center;
+        height: 60px;
+        line-height: 60px;
+        border-bottom: none;
+        border-right: 2px solid #fff;
+        border-left: 2px solid #fff;
+    }
+    .navbar .menu>li.active a {
+        border-bottom: none;
+        border-right: 2px solid #d63031;
+        border-left: 2px solid #d63031;
+    }
+    .navbar .menu>li a:hover {
+        border-bottom: none;
+        border-right: 2px solid #0984e3;
+        border-left: 2px solid #0984e3;
+    }
+    .navbar .left {
+        position: absolute;
+        width: 128px;
+        right: 0;
+        left: 0;
+        margin: auto;
+    }
 }
